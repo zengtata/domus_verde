@@ -86,11 +86,15 @@ export default function AboutPage() {
                             </p>
 
                             <p className="text-text-muted mb-6 leading-relaxed text-lg">
-                                A Domus Verde története 12 évvel ezelőtt kezdődött egy egyszerű elképzeléssel: a luxus nem a hivalkodásról szól, hanem a tökéletes harmóniáról.
+                                A Domus Verde 6 éve van jelen a prémium kertépítés világában. Stabil, 3–4 fős csapatunk tapasztalt szakmai partnerekkel, alvállalkozókkal és tervezőkkel dolgozik együtt, így nagyobb volumenű projekteket is magas minőségben, összehangoltan valósítunk meg.
                             </p>
 
-                            <p className="text-text-muted mb-10 leading-relaxed">
-                                Hiszünk abban, hogy minden kertnek lelke van. A tervezőasztaltól az utolsó ültetett virágig azon dolgozunk, hogy ez a lélek rezonáljon az Ön életstílusával.
+                            <p className="text-text-muted mb-6 leading-relaxed text-lg">
+                                Teljes körű kertépítésre specializálódtunk: a tereprendezéstől és öntözőrendszer-telepítéstől kezdve a kerti világításon és burkolatokon át az okoskertek kialakításáig minden munkafolyamatot precízen, egy kézben tartunk.
+                            </p>
+
+                            <p className="text-text-muted mb-6 leading-relaxed text-lg">
+                                Célunk, hogy a kertépítésben végre valódi érték szülessen: tisztességes, lelkiismeretes és kompromisszummentesen precíz kivitelezéssel, amely hosszú távon is élményt és minőséget képvisel.
                             </p>
 
                             {/* Signature Block */}
@@ -102,7 +106,7 @@ export default function AboutPage() {
                                 </div>
                                 <div>
                                     <p className="font-heading text-xl text-primary-green font-bold leading-none mb-1">Hatvány Bence</p>
-                                    <p className="text-[10px] text-accent-gold uppercase tracking-[2px]">Alapító, Vezető Tervező</p>
+                                    <p className="text-[10px] text-accent-gold uppercase tracking-[2px]">Alapító</p>
                                 </div>
                             </div>
                         </Reveal>

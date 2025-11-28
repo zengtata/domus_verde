@@ -14,10 +14,11 @@ export default function ProcessBanner() {
 
                         {/* Left: Text Content */}
                         <div className="p-12 md:p-16 flex flex-col justify-center z-10 relative">
+                            {/* ... (Your existing text content remains exactly the same) ... */}
                             <Reveal>
-                <span className="text-accent-gold uppercase tracking-[3px] text-xs font-bold mb-4 block">
-                   Lépésről Lépésre
-                </span>
+                                <span className="text-accent-gold uppercase tracking-[3px] text-xs font-bold mb-4 block">
+                                    Lépésről Lépésre
+                                </span>
                                 <h2 className="font-heading text-4xl md:text-5xl mb-6 leading-tight">
                                     Így válik a látványterv élő természetté.
                                 </h2>
@@ -25,7 +26,6 @@ export default function ProcessBanner() {
                                     Átlátható, 4 lépéses folyamatunk garancia a minőségre. Ismerje meg, hogyan vezetjük végig Önt a tervezőasztaltól az első kerti partiig.
                                 </p>
 
-                                {/* Simplified Steps List */}
                                 <ul className="grid grid-cols-2 gap-4 mb-10">
                                     {['Konzultáció', 'Tervezés', 'Kivitelezés', 'Átadás'].map((item, i) => (
                                         <li key={i} className="flex items-center gap-3 text-sm font-medium text-white/90">
@@ -45,17 +45,19 @@ export default function ProcessBanner() {
                         </div>
 
                         {/* Right: Image */}
-                        <div className="relative h-[400px] md:h-auto min-h-full">
+                        <div className="relative h-[300px] md:h-auto min-h-full overflow-hidden group">
+
+                            {/* --- GRADIENT OVERLAY --- */}
+                            {/* Mobile: Top-to-Bottom fade (bg-gradient-to-b) */}
+                            {/* Desktop: Left-to-Right fade (bg-gradient-to-r) */}
+                            <div className="absolute inset-0 z-20 pointer-events-none bg-gradient-to-b from-primary-green to-transparent md:bg-gradient-to-r md:from-primary-green md:to-transparent" style={{ backgroundSize: '100% 100%' }}></div>
                             <Image
-                                src="/images/5ec93c46-30c1-495b-ad0b-f0fac59d59aa.jpg" // Use a process-related image (e.g. planning or planting)
+                                src="/images/5ec93c46-30c1-495b-ad0b-f0fac59d59aa.jpg"
                                 alt="Process"
                                 fill
-                                className="object-cover grayscale hover:grayscale-0 transition-all duration-1000"
+                                className="object-cover transition-transform duration-1000 group-hover:scale-105"
                             />
-                            {/* Gradient Overlay to blend image with text area */}
-                            <div className="absolute inset-0 bg-gradient-to-r from-primary-green via-transparent to-transparent md:hidden"></div>
                         </div>
-
                     </div>
                 </div>
             </div>

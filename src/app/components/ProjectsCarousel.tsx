@@ -19,12 +19,12 @@ export default function ProjectsCarousel() {
             loop: true,
             dragFree: true,
             align: 'start',
-            containScroll: false // Ensures seamless infinite scrolling
+            containScroll: false
         },
         [
             AutoScroll({
                 playOnInit: true,
-                speed: 1,
+                speed: 1, // Slightly slower speed usually looks better for wide images
                 stopOnInteraction: false,
                 stopOnMouseEnter: true,
             })
@@ -34,32 +34,31 @@ export default function ProjectsCarousel() {
     return (
         <div className="py-12 bg-transparent">
             <div className="overflow-hidden" ref={emblaRef}>
-                {/* 1. Removed 'gap-6' here */}
                 <div className="flex touch-pan-y -ml-6">
                     {projects.map((project, index) => (
                         <div
                             key={`${project.id}-${index}`}
-                            // 2. Added 'pl-6' here to create the gap on the slide itself
-                            className="relative flex-none pl-6 w-[300px] h-[400px] md:w-[350px] md:h-[450px] select-none"
+                            // CHANGED: Dimensions are now wider than they are tall (Landscape)
+                            // Mobile: 300px wide, 220px tall
+                            // Desktop: 500px wide, 350px tall
+                            className="relative flex-none pl-6 w-[300px] h-[220px] md:w-[500px] md:h-[350px] select-none"
                         >
-                            {/* Inner container for rounding/shadow (so padding doesn't break border-radius) */}
-                            <div className="relative w-full h-full rounded-xl overflow-hidden shadow-lg">
+                            <div className="group relative w-full h-full rounded-xl overflow-hidden shadow-lg cursor-pointer">
                                 <Image
                                     src={project.img}
                                     alt={project.title}
                                     fill
-                                    sizes="(max-width: 768px) 100vw, 350px"
-                                    className="object-cover hover:scale-105 transition-transform duration-700"
+                                    // Updated sizes prop to match new width
+                                    sizes="(max-width: 768px) 100vw, 500px"
+                                    className="object-cover group-hover:scale-105 transition-transform duration-700"
                                 />
 
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
-
-                                <div className="absolute bottom-8 left-6 pointer-events-none">
-                                    <div className="flex items-center">
-                                        <div className="h-8 w-[3px] bg-[#B49B6C] mr-3"></div>
-                                        <span className="text-white font-heading text-xl tracking-wide">
+                                {/* Overlay - Matches references/page.tsx style */}
+                                <div className="absolute inset-0 bg-primary-green/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                                    <div className="text-center transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                                        <p className="font-heading text-2xl text-white">
                                             {project.title}
-                                        </span>
+                                        </p>
                                     </div>
                                 </div>
                             </div>

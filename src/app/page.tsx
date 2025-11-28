@@ -2,7 +2,7 @@ import Image from "next/image";
 import Header from "./components/Header";
 import Reveal from "./components/Reveal";
 import ProjectsCarousel from "./components/ProjectsCarousel";
-import Stats from "./components/Stats";4
+import Stats from "./components/Stats";
 import ProcessHint from "./components/ProcessHint";
 import ContactForm from "./components/ContactForm";
 
@@ -28,7 +28,7 @@ export default function Home() {
           <div className="relative z-10 container px-4">
             <Reveal>
               <h2 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-                Ahol a Természet és a Luxus Találkozik
+                Ahol a Természet <br/> és a Luxus Találkozik
               </h2>
             </Reveal>
             <Reveal delay={100}>
@@ -59,9 +59,9 @@ export default function Home() {
           </Reveal>
           <Reveal delay={200} className="h-[500px] rounded-lg overflow-hidden shadow-xl">
             <img
-                src="/images/company2.jpg"
+                src="/images/home_about.jpg"
                 alt="Domus Verde"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover object-center"
             />
           </Reveal>
         </section>

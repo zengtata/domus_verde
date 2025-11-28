@@ -3,40 +3,41 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import Header from '../components/Header';
 import Reveal from '../components/Reveal';
+import StepVisual from "@/app/components/StepVisual";
 
 // --- MOCK DATA: STEPS ---
 const steps = [
     {
         id: 1,
         num: "1",
-        title: "Konzultáció és Felmérés",
-        desc: "Minden egy személyes találkozóval kezdődik a helyszínen. Felmérjük a terület adottságait, a talaj minőségét, a fényviszonyokat, és ami a legfontosabb: alaposan átbeszéljük az Ön igényeit és életstílusát. Ez az alapja a tökéletes tervezésnek.",
-        img: "/images/0d366649-83cb-4f65-abe8-aadb6d3cca61.jpg", // Replace with Consultation/Meeting image
-        quote: "A jó design a hallgatással kezdődik."
+        title: "Találkozás és Inspiráció",
+        desc: "A helyszíni konzultáció során megismerjük az Ön elképzeléseit, életstílusát és az adott terület lehetőségeit. Figyelünk a részletekre, mert a valódi prémium élmény ott kezdődik, ahol mások megállnak.",
+        quote: "Egy jó design a hallgatással kezdődik.",
+        type: 'consultation'
     },
     {
         id: 2,
         num: "2",
-        title: "Koncepció és 3D Tervezés",
+        title: "Koncepció és Forma",
         desc: "Belső építész csapatunk fotorealisztikus 3D látványterveket készít, hogy Ön pontosan lássa, hogyan fog festeni kertje a valóságban. Ebben a fázisban választjuk ki a burkolatokat, a növényzet típusait és a kerti építmények stílusát.",
-        img: "/images/1c40a67a-cd12-4797-86f2-9742ba97a2e8.jpg", // Replace with Blueprint/3D render image
-        quote: "Nem csak rajzolunk, álmokat vizualizálunk."
+        quote: "Nem csak rajzolunk, álmokat vizualizálunk.",
+        type: 'design'
     },
     {
         id: 3,
         num: "3",
-        title: "Precíz Kivitelezés",
-        desc: "Szakértő kivitelező csapatunk prémium anyagokkal és modern gépparkkal valósítja meg a terveket. A tereprendezéstől az öntözőrendszer telepítésén át az utolsó évelő elültetéséig minden fázist szigorú minőségellenőrzés kísér.",
-        img: "/images/4f50f071-0bc7-4b7a-928e-4538c438ed49.jpg", // Replace with Construction/Planting image
-        quote: "A minőség az apró részletekben rejlik."
+        title: "Megvalósítás Mesterszinten",
+        desc: "Precíz kivitelezés, összehangolt csapatmunka és kompromisszummentes minőség – minden mozdulat a tökéletesség irányába vezet.",
+        quote: "A minőség az apró részletekben rejlik.",
+        type: 'build'
     },
     {
         id: 4,
         num: "4",
-        title: "Átadás és Utógondozás",
-        desc: "A munka nem ér véget az átadással. Bemutatjuk az új kert minden funkcióját, és igény esetén szezonális karbantartási tervet készítünk, hogy a kertje évek múlva is ugyanolyan gyönyörű legyen, mint az első napon.",
-        img: "/images/5ec93c46-30c1-495b-ad0b-f0fac59d59aa.jpg", // Replace with Finished Garden image
-        quote: "A kert egy élő organizmus, amely gondoskodást igényel."
+        title: "Átadás és Folyamatos Gondoskodás",
+        desc: "A kert életre kel, de a kapcsolat nem ér véget. Átadjuk, majd igény szerint segítünk megőrizni gondozást végző partnereink segítségével azt a szépséget, amelyet megalkottuk.",
+        quote: "A kert egy élő organizmus, amely gondoskodást igényel.",
+        type: 'care'
     },
 ];
 
@@ -73,7 +74,8 @@ export default function ProcessPage() {
                 <div className="relative z-10 text-center px-6 pt-16">
                     <Reveal>
                         <span className="block text-accent-gold uppercase tracking-[3px] text-sm font-bold mb-4">
-                            Munkamódszerünk
+                            A kert születése – ahogyan mi dolgozunk
+
                         </span>
                         <h3 className="font-heading text-5xl md:text-6xl text-white mb-6">
                             A Tervezéstől a Valóságig
@@ -118,24 +120,26 @@ export default function ProcessPage() {
                                     <div className="w-3 h-3 bg-primary-green rounded-full"></div>
                                 </div>
 
-                                {/* Image Side */}
-                                <div className="w-full md:w-1/2 px-4 md:px-12">
-                                    <Reveal delay={200} className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-xl group">
-                                        <Image
-                                            src={step.img}
-                                            alt={step.title}
-                                            fill
-                                            className="object-cover transition-transform duration-1000 group-hover:scale-110"
-                                        />
-                                        {/* Elegant Border Overlay */}
-                                        <div className="absolute inset-4 border border-white/30 rounded-xl pointer-events-none z-10"></div>
+                                <div className="w-full md:w-1/2 px-4 md:px-16 order-first md:order-none">
+                                    <Reveal delay={200} className="w-full aspect-square md:aspect-[4/3] shadow-xl hover:shadow-2xl transition-shadow duration-500">
+                                        <StepVisual type={step.type} />
                                     </Reveal>
                                 </div>
-
                             </div>
                         );
                     })}
                 </div>
+
+
+                {/* --- SIGNATURE STYLE --- */}
+                <Reveal className="mt-32 flex flex-col items-center justify-center text-center">
+
+
+                    <p className="font-heading text-3xl md:text-4xl text-primary-green mb-6 px-4">
+                        “A Domus Verde-nél a kert nem projekt. Hanem örökség.”
+                    </p>
+                </Reveal>
+
             </section>
 
             {/* --- FAQ SECTION --- */}
