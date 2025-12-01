@@ -82,7 +82,7 @@ export default function AboutPage() {
                         {/* Right: Text Content */}
                         <Reveal delay={200} className="md:pl-6">
                             <p className="font-heading text-4xl md:text-5xl text-primary-green mb-8 leading-tight">
-                                "A Domus Verde-nél a kert nem projekt, hanem <span className="text-accent-gold italic">örökség."</span>
+                                A Domus Verde-nél a kert nem projekt, hanem <span className="text-accent-gold italic">örökség</span>
                             </p>
 
                             <p className="text-text-muted mb-6 leading-relaxed text-lg">
