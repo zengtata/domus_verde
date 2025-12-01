@@ -78,9 +78,17 @@ export default function ContactSection() {
                             <button
                                 type="submit"
                                 disabled={!token}
-                                className={`px-10 py-4 rounded-full uppercase tracking-wider font-medium transition-all shadow-lg w-full md:w-auto ${token ? 'bg-accent-gold text-white hover:bg-[#a18a5e] hover:-translate-y-1' : 'bg-[#B49B6C]/50 text-white cursor-not-allowed'}`}
+                                className={`relative w-full md:w-auto overflow-hidden rounded-full px-10 py-4 text-sm font-medium uppercase tracking-wider text-white shadow-lg transition-all duration-300 ease-out ${
+                                    token
+                                        ? 'group bg-accent-gold cursor-pointer hover:-translate-y-1 hover:scale-105 hover:bg-[#bfa77a] hover:shadow-2xl active:translate-y-0 active:scale-95'
+                                        : 'bg-[#B49B6C]/50 cursor-not-allowed'
+                                }`}
                             >
-                                Küldés
+                                {/* Relative Z-Index to keep text above the shine effect */}
+                                <span className="relative z-10">Küldés</span>
+
+                                {/* Shine Effect Overlay - Only triggers if 'group' class is present (which is only when token is true) */}
+                                <div className="absolute inset-0 -z-10 h-full w-full origin-left scale-x-0 transform bg-white/20 transition-transform duration-500 ease-out group-hover:scale-x-100" />
                             </button>
                         </div>
 

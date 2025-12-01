@@ -24,7 +24,7 @@ export default function ProjectsCarousel() {
         [
             AutoScroll({
                 playOnInit: true,
-                speed: 1, // Slightly slower speed usually looks better for wide images
+                speed: 1,
                 stopOnInteraction: false,
                 stopOnMouseEnter: true,
             })
@@ -38,9 +38,6 @@ export default function ProjectsCarousel() {
                     {projects.map((project, index) => (
                         <div
                             key={`${project.id}-${index}`}
-                            // CHANGED: Dimensions are now wider than they are tall (Landscape)
-                            // Mobile: 300px wide, 220px tall
-                            // Desktop: 500px wide, 350px tall
                             className="relative flex-none pl-6 w-[300px] h-[220px] md:w-[500px] md:h-[350px] select-none"
                         >
                             <div className="group relative w-full h-full rounded-xl overflow-hidden shadow-lg cursor-pointer">
@@ -48,19 +45,21 @@ export default function ProjectsCarousel() {
                                     src={project.img}
                                     alt={project.title}
                                     fill
-                                    // Updated sizes prop to match new width
                                     sizes="(max-width: 768px) 100vw, 500px"
                                     className="object-cover group-hover:scale-105 transition-transform duration-700"
                                 />
 
-                                {/* Overlay - Matches references/page.tsx style */}
-                                <div className="absolute inset-0 bg-primary-green/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                                    <div className="text-center transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                                        <p className="font-heading text-2xl text-white">
+                                {/* FIX: className string is now on a SINGLE LINE */}
+                                <div className="absolute inset-0 transition-all duration-300 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-100 flex items-end justify-start p-6 md:bg-none md:bg-primary-green/60 md:opacity-0 md:group-hover:opacity-100 md:items-center md:justify-center">
+
+                                    {/* Text Container */}
+                                    <div className="translate-y-0 md:translate-y-4 md:group-hover:translate-y-0 md:transition-transform md:duration-500">
+                                        <p className="font-heading text-2xl text-white drop-shadow-md md:drop-shadow-none">
                                             {project.title}
                                         </p>
                                     </div>
                                 </div>
+
                             </div>
                         </div>
                     ))}

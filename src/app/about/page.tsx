@@ -72,7 +72,7 @@ export default function AboutPage() {
                                 <div className="absolute top-12 -right-6 z-20 bg-white p-2 rounded-full shadow-lg animate-float">
                                     <div className="w-20 h-20 rounded-full border border-accent-gold/30 flex flex-col items-center justify-center text-center">
                                         <span className="font-heading text-primary-green text-xs font-bold">EST.</span>
-                                        <span className="font-heading text-accent-gold text-lg font-bold leading-none">2012</span>
+                                        <span className="font-heading text-accent-gold text-lg font-bold leading-none">2020</span>
                                     </div>
                                 </div>
 
@@ -82,7 +82,7 @@ export default function AboutPage() {
                         {/* Right: Text Content */}
                         <Reveal delay={200} className="md:pl-6">
                             <p className="font-heading text-4xl md:text-5xl text-primary-green mb-8 leading-tight">
-                                Nem kertet építünk, <br/> hanem <span className="text-accent-gold italic">otthont a szabadban.</span>
+                                "A Domus Verde-nél a kert nem projekt, hanem <span className="text-accent-gold italic">örökség."</span>
                             </p>
 
                             <p className="text-text-muted mb-6 leading-relaxed text-lg">
@@ -140,8 +140,12 @@ export default function AboutPage() {
             <section className="py-24 bg-primary-charcoal text-white">
                 <div className="container mx-auto px-6">
                     <Reveal className="text-center mb-16">
-                        <span className="text-accent-gold uppercase tracking-[3px] text-sm font-bold">Csapatunk</span>
-                        <p className="font-heading text-4xl md:text-5xl mt-2">Akik a kerteket életre keltik</p>
+                        <span className="text-accent-gold uppercase tracking-[3px] text-sm font-bold">
+                            Csapatunk
+                        </span>
+                        <h2 className="font-heading text-4xl md:text-5xl mt-3 leading-tight">
+                            Akik a kerteket életre keltik
+                        </h2>
                     </Reveal>
 
                     <div className="grid md:grid-cols-3 gap-8">
@@ -150,19 +154,33 @@ export default function AboutPage() {
                             { name: "Varga Péter", role: "Kivitelezési Vezető", img: "/images/1c40a67a-cd12-4797-86f2-9742ba97a2e8.jpg" },
                             { name: "Szabó Lilla", role: "Növény Szakértő", img: "/images/7a58a5c7-c634-4314-a2dc-2851125af4a4.jpg" },
                         ].map((member, i) => (
-                            <Reveal key={i} delay={i * 150} className="group relative">
-                                <div className="relative h-[450px] w-full overflow-hidden rounded-lg">
+                            <Reveal key={i} delay={i * 150} className="h-full">
+                                {/* Card Container */}
+                                <div className="group relative h-[450px] w-full overflow-hidden rounded-xl border border-white/10 shadow-lg bg-primary-charcoal/50">
+
+                                    {/* Image - Removed grayscale classes so it's always full color */}
                                     <Image
                                         src={member.img}
                                         alt={member.name}
                                         fill
-                                        className="object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0"
+                                        className="object-cover transition-transform duration-700 ease-out scale-100 md:group-hover:scale-105"
                                     />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent opacity-80" />
 
-                                    <div className="absolute bottom-0 left-0 w-full p-8 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                                        <p className="font-heading text-2xl text-white mb-1">{member.name}</p>
-                                        <p className="text-accent-gold text-xs uppercase tracking-widest">{member.role}</p>
+                                    {/* Gradient Overlay - Kept for text readability */}
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent opacity-90 transition-opacity duration-500 md:opacity-80 md:group-hover:opacity-95" />
+
+                                    {/* Text Content */}
+                                    <div className="absolute bottom-0 left-0 w-full p-8 transition-transform duration-500 ease-out translate-y-0 md:translate-y-4 md:group-hover:translate-y-0">
+                                        <h3 className="font-heading text-2xl text-white mb-2 tracking-wide leading-none">
+                                            {member.name}
+                                        </h3>
+
+                                        <div className="flex items-center gap-3">
+                                            <span className="h-[1px] w-8 bg-accent-gold/70 inline-block transition-all duration-500 md:w-0 md:group-hover:w-8"></span>
+                                            <p className="text-accent-gold text-xs uppercase tracking-widest font-semibold">
+                                                {member.role}
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
                             </Reveal>

@@ -37,8 +37,15 @@ export default function Home() {
               </p>
             </Reveal>
             <Reveal delay={200}>
-              <a href="#contact" className="inline-block bg-accent-gold text-white mt-10 px-8 py-4 rounded-full uppercase tracking-wider font-medium text-sm hover:bg-[#a18a5e] transition-transform hover:-translate-y-1 shadow-lg">
-                Ajánlatot Kérek
+              <a
+                  href="#contact"
+                  className="group relative inline-block overflow-hidden rounded-full bg-accent-gold px-8 py-4 text-sm font-medium uppercase tracking-wider text-white shadow-lg transition-all duration-300 ease-out hover:-translate-y-1 hover:scale-105 hover:bg-[#bfa77a] hover:shadow-2xl active:translate-y-0 active:scale-95"
+              >
+                {/* Relative Z-Index to keep text above the shine effect */}
+                <span className="relative z-10">Ajánlatot Kérek</span>
+
+                {/* Shine Effect Overlay */}
+                <div className="absolute inset-0 -z-10 h-full w-full origin-left scale-x-0 transform bg-white/20 transition-transform duration-500 ease-out group-hover:scale-x-100" />
               </a>
             </Reveal>
           </div>
@@ -53,8 +60,9 @@ export default function Home() {
             <p className="text-text-muted text-lg leading-relaxed mb-8">
               Hiszünk abban, hogy a kert nem csupán növények összessége, hanem egy személyre szabott menedék, amely harmóniát teremt otthona és a természet között. Minden projektünk egy egyedi műalkotás.
             </p>
-            <a href="/about" className="inline-block bg-accent-gold text-white px-8 py-3 rounded-full uppercase tracking-wider text-sm font-medium hover:bg-[#a18a5e] transition-all shadow-md">
-              Rólunk Bővebben
+            <a href="/about" className="group relative inline-block overflow-hidden rounded-full bg-accent-gold px-8 py-3 text-sm font-medium uppercase tracking-wider text-white shadow-md transition-all duration-300 ease-out hover:-translate-y-1 hover:scale-105 hover:bg-[#bfa77a] hover:shadow-2xl active:translate-y-0 active:scale-95">
+              <span className="relative z-10">Rólunk Bővebben</span>
+              <div className="absolute inset-0 -z-10 h-full w-full origin-left scale-x-0 transform bg-white/20 transition-transform duration-500 ease-out group-hover:scale-x-100" />
             </a>
           </Reveal>
           <Reveal delay={200} className="h-[500px] rounded-lg overflow-hidden shadow-xl">
@@ -86,8 +94,9 @@ export default function Home() {
             </Reveal>
 
             <Reveal delay={200}>
-              <a href="/references" className="inline-block bg-accent-gold text-white px-8 py-3 rounded-full uppercase tracking-wider text-sm font-medium hover:bg-[#a18a5e] transition-all shadow-md mt-8">
-                Összes Referencia
+              <a href="/references" className="group relative inline-block overflow-hidden rounded-full bg-accent-gold px-8 py-3 text-sm font-medium uppercase tracking-wider text-white shadow-md transition-all duration-300 ease-out hover:-translate-y-1 hover:scale-105 hover:bg-[#bfa77a] hover:shadow-2xl active:translate-y-0 active:scale-95 mt-8">
+                <span className="relative z-10">Összes Referencia</span>
+                <div className="absolute inset-0 -z-10 h-full w-full origin-left scale-x-0 transform bg-white/20 transition-transform duration-500 ease-out group-hover:scale-x-100" />
               </a>
             </Reveal>
           </div>

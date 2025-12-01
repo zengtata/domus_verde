@@ -19,7 +19,7 @@ const steps = [
         id: 2,
         num: "2",
         title: "Koncepció és Forma",
-        desc: "Belső építész csapatunk fotorealisztikus 3D látványterveket készít, hogy Ön pontosan lássa, hogyan fog festeni kertje a valóságban. Ebben a fázisban választjuk ki a burkolatokat, a növényzet típusait és a kerti építmények stílusát.",
+        desc: "A tervezési fázisban megszületik a kert karaktere. Anyagok, formák, növények és funkciók harmonikus egységbe rendeződnek, hogy a kert valóban tükrözze az Ön személyiségét.",
         quote: "Nem csak rajzolunk, álmokat vizualizálunk.",
         type: 'design'
     },
@@ -50,7 +50,6 @@ const faqs = [
 ];
 
 export default function ProcessPage() {
-    // State for Accordion
     const [openFaq, setOpenFaq] = useState<number | null>(null);
 
     const toggleFaq = (index: number) => {
@@ -64,7 +63,7 @@ export default function ProcessPage() {
             {/* --- HERO SECTION --- */}
             <section className="relative h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden">
                 <Image
-                    src="/images/process.jpg" // Use a "Work in progress" or sketching image
+                    src="/images/process.jpg"
                     alt="Process Hero"
                     fill
                     className="object-cover"
@@ -75,7 +74,6 @@ export default function ProcessPage() {
                     <Reveal>
                         <span className="block text-accent-gold uppercase tracking-[3px] text-sm font-bold mb-4">
                             A kert születése – ahogyan mi dolgozunk
-
                         </span>
                         <h3 className="font-heading text-5xl md:text-6xl text-white mb-6">
                             A Tervezéstől a Valóságig
@@ -84,43 +82,53 @@ export default function ProcessPage() {
                 </div>
             </section>
 
-            {/* --- DETAILED STEPS (ZIG-ZAG LAYOUT) --- */}
+            {/* --- DETAILED STEPS --- */}
             <section className="py-24 overflow-hidden">
                 <div className="container mx-auto px-6 relative">
 
-                    {/* Center Vertical Line (Desktop Only) */}
-                    <div className="absolute left-1/2 top-0 bottom-0 w-[1px] bg-primary-green/10 -translate-x-1/2 hidden md:block z-0"></div>
+                    {/* CONTINUOUS VERTICAL LINE */}
+                    {/* Fixed: Class string is now single-line to prevent hydration mismatch */}
+                    <div className="absolute top-0 bottom-0 w-[1px] bg-primary-green/10 -translate-x-1/2 z-0 left-8 md:left-1/2"></div>
 
                     {steps.map((step, index) => {
                         const isEven = index % 2 === 0;
                         return (
-                            <div key={step.id} className={`relative flex flex-col md:flex-row items-center gap-12 md:gap-0 mb-24 last:mb-0 ${isEven ? '' : 'md:flex-row-reverse'}`}>
+                            <div key={step.id} className={`relative flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-0 mb-20 last:mb-0 ${isEven ? '' : 'md:flex-row-reverse'}`}>
 
-                                {/* Text Side */}
-                                <div className={`w-full md:w-1/2 ${isEven ? 'md:pr-20 md:text-right' : 'md:pl-20 md:text-left'} text-center relative z-10`}>
+                                {/* TEXT CONTAINER */}
+                                <div className={`w-full md:w-1/2 relative z-10 pl-20 md:pl-0 text-left ${isEven ? 'md:pr-20 md:text-right' : 'md:pl-20 md:text-left'}`}>
+
                                     <Reveal>
-                                        <span className="font-heading text-8xl text-primary-green/5 absolute top-[-40px] left-1/2 -translate-x-1/2 md:left-auto md:translate-x-0 md:static block leading-none select-none">
-                                            {step.num}
-                                        </span>
-                                        <p className="font-heading text-3xl md:text-4xl text-primary-green mb-4 relative">
+                                        {/* Title */}
+                                        <p className="font-heading text-2xl md:text-4xl text-primary-green mb-4 relative z-10">
                                             {step.title}
                                         </p>
-                                        <div className={`w-12 h-[2px] bg-accent-gold mb-6 mx-auto ${isEven ? 'md:ml-auto md:mr-0' : 'md:mr-auto md:ml-0'}`}></div>
-                                        <p className="text-text-muted leading-relaxed text-lg mb-6">
+
+                                        {/* Divider Line */}
+                                        <div className={`w-12 h-[2px] bg-accent-gold mb-6 mr-auto ml-0 ${isEven ? 'md:ml-auto md:mr-0' : 'md:mr-auto md:ml-0'}`}></div>
+
+                                        {/* Description */}
+                                        <p className="text-text-muted leading-relaxed text-lg mb-4 relative z-10">
                                             {step.desc}
                                         </p>
-                                        <p className="font-serif italic text-primary-green/60 text-sm">
+
+                                        {/* Quote */}
+                                        <p className="font-serif italic text-primary-green/60 text-sm relative z-10">
                                             {step.quote}
                                         </p>
                                     </Reveal>
                                 </div>
 
-                                {/* Center Dot (Desktop Only) */}
-                                <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 w-12 h-12 rounded-full bg-[#F4F3EF] border-2 border-accent-gold items-center justify-center z-20 shadow-sm">
-                                    <div className="w-3 h-3 bg-primary-green rounded-full"></div>
+                                {/* CENTER NUMBER BADGE */}
+                                {/* Fixed: Mobile 'top-0' aligns it with the Title (top of content), 'left-2' centers it on the line. */}
+                                <div className="absolute left-2 top-0 -translate-x-1/2 md:static md:flex md:left-auto md:top-auto md:translate-x-0 md:translate-y-0 w-12 h-12 rounded-full bg-white border-2 border-accent-gold flex items-center justify-center z-20 shadow-md">
+                                     <span className="font-heading text-xl font-bold text-primary-green">
+                                         {step.num}
+                                     </span>
                                 </div>
 
-                                <div className="w-full md:w-1/2 px-4 md:px-16 order-first md:order-none">
+                                {/* IMAGE SIDE (HIDDEN ON MOBILE) */}
+                                <div className="hidden md:block w-full md:w-1/2 px-4 md:px-16 order-first md:order-none">
                                     <Reveal delay={200} className="w-full aspect-square md:aspect-[4/3] shadow-xl hover:shadow-2xl transition-shadow duration-500">
                                         <StepVisual type={step.type} />
                                     </Reveal>
@@ -129,16 +137,6 @@ export default function ProcessPage() {
                         );
                     })}
                 </div>
-
-
-                {/* --- SIGNATURE STYLE --- */}
-                <Reveal className="mt-32 flex flex-col items-center justify-center text-center">
-
-
-                    <p className="font-heading text-3xl md:text-4xl text-primary-green mb-6 px-4">
-                        “A Domus Verde-nél a kert nem projekt. Hanem örökség.”
-                    </p>
-                </Reveal>
 
             </section>
 

@@ -49,7 +49,6 @@ export default function GalleryPage() {
             {/* --- UNIFORM GRID --- */}
             <section className="py-24 px-4 md:px-8 max-w-[1400px] mx-auto">
 
-                {/* Changed from 'columns-...' (Masonry) to 'grid' for uniform sizing */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {projects.map((project) => (
                         <Reveal key={project.id}>
@@ -57,32 +56,31 @@ export default function GalleryPage() {
                                 className="group relative overflow-hidden rounded-xl cursor-pointer shadow-md hover:shadow-xl transition-all duration-500"
                                 onClick={() => setSelectedImage(project.src)}
                             >
-                                {/* IMAGE WRAPPER:
-                                    - 'aspect-[4/3]' forces a standard landscape shape for ALL cards.
-                                    - Use 'aspect-square' if you want perfect squares.
-                                */}
+                                {/* IMAGE WRAPPER */}
                                 <div className="relative w-full aspect-[4/3]">
                                     <Image
                                         src={project.src}
                                         alt={project.title}
                                         fill
-                                        // 'sizes' helps Next.js optimize loading based on screen width
                                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                         className="object-cover transition-transform duration-700 group-hover:scale-105"
                                     />
                                 </div>
 
-                                {/* Overlay */}
-                                <div className="absolute inset-0 bg-primary-green/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                                    <div className="text-center transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                                        <p className="font-heading text-2xl text-white">
+                                {/* OVERLAY CONTAINER - FIX: Combined into one line */}
+                                <div className="absolute inset-0 transition-all duration-300 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-100 flex items-end justify-start p-6 md:bg-none md:bg-primary-green/60 md:opacity-0 md:group-hover:opacity-100 md:items-center md:justify-center">
+
+                                    {/* TEXT CONTENT */}
+                                    <div className="text-left translate-y-0 md:text-center md:translate-y-4 md:group-hover:translate-y-0 md:transition-transform md:duration-500">
+                                        <p className="font-heading text-2xl text-white drop-shadow-md md:drop-shadow-none">
                                             {project.title}
                                         </p>
-                                        <span className="text-accent-gold text-xs uppercase tracking-widest block mt-2">
+                                        <span className="text-accent-gold text-xs uppercase tracking-widest block mt-2 drop-shadow-md md:drop-shadow-none">
                                             Megtekintés
                                         </span>
                                     </div>
                                 </div>
+
                             </div>
                         </Reveal>
                     ))}

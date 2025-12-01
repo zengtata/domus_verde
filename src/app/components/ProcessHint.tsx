@@ -19,9 +19,9 @@ export default function ProcessBanner() {
                                 <span className="text-accent-gold uppercase tracking-[3px] text-xs font-bold mb-4 block">
                                     Lépésről Lépésre
                                 </span>
-                                <h2 className="font-heading text-4xl md:text-5xl mb-6 leading-tight">
+                                <p className="font-heading text-4xl md:text-5xl mb-6 leading-tight">
                                     Így válik a látványterv élő természetté.
-                                </h2>
+                                </p>
                                 <p className="text-white/80 mb-8 leading-relaxed">
                                     Átlátható, 4 lépéses folyamatunk garancia a minőségre. Ismerje meg, hogyan vezetjük végig Önt a tervezőasztaltól az első kerti partiig.
                                 </p>
@@ -35,11 +35,9 @@ export default function ProcessBanner() {
                                     ))}
                                 </ul>
 
-                                <Link
-                                    href="/process"
-                                    className="inline-block bg-white text-primary-green px-8 py-3 rounded-full uppercase tracking-wider text-xs font-bold hover:bg-accent-gold hover:text-white transition-all duration-300 w-fit"
-                                >
-                                    Részletek
+                                <Link href="/process" className="group relative inline-block w-fit overflow-hidden rounded-full bg-white px-8 py-3 text-xs font-bold uppercase tracking-wider text-primary-green shadow-md transition-all duration-300 ease-out hover:-translate-y-1 hover:scale-105 hover:bg-accent-gold hover:text-white hover:shadow-2xl active:translate-y-0 active:scale-95">
+                                    <span className="relative z-10">Részletek</span>
+                                    <div className="absolute inset-0 -z-10 h-full w-full origin-left scale-x-0 transform bg-white/20 transition-transform duration-500 ease-out group-hover:scale-x-100" />
                                 </Link>
                             </Reveal>
                         </div>
